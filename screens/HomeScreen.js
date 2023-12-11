@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import Loading from '../components/loading';
 import { styles } from '../theme';
 
+const ios = Platform.OS === 'ios';
 
 export default function HomeScreen() {
 
@@ -43,10 +44,12 @@ export default function HomeScreen() {
     if (data && data.results) setTopRated(data.results);
   }
 
+
+
   return (
     <View className="flex-1 bg-neutral-800">
       {/* search bar */}
-      <SafeAreaView className="mb-3">
+      <SafeAreaView className={ios ? "-mb-2" : "mb-3"}>
         <StatusBar style="light" />
         <View className="flex-row justify-between items-center mx-4">
           <Bars3CenterLeftIcon size="30" strokeWidth={2} color="white" />
